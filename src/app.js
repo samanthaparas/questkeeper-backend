@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import spellsRouter from "./routes/spells.js";
 import classesRouter from "./routes/classes.js";
+import racesRouter from "./routes/races.js";
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/spells", spellsRouter);
 app.use("/api/classes", classesRouter);
+app.use("/api/races", racesRouter);
 
 app.use((error, req, res, next) => {
   res.status(error.statusCode || 500).json({
